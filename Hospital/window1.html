@@ -1,0 +1,217 @@
+<!-- <?php include 'server/server.php'?> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Window1</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="first-cont">
+        <p>WINDOW 1</p>
+      </div>
+      <div class="second-cont">
+        <div class="text-cont">
+          <p class="normal">NORMAL</p>
+          <p class="priority">PRIORITY</p>
+        </div>
+        <div class="underline-cont">
+          <p></p>
+        </div>
+      </div>
+      <div class="third-cont">
+        <div class="logout-cont">
+          <img src="assets/logout.png" alt="" />
+          <p class="logout">Logout</p>
+        </div>
+      </div>
+    </div>
+
+    <form class="normal-content">
+      <div class="home-cont">
+        <div class="serving">SERVING</div>
+        <!-- <div class="ticket-number">IP000</div> -->
+
+        <input type="text" class="input-text" placeholder="001" />
+        <div class="button-cont">
+          <div class="previous-cont">
+            <div class="previous" onclick="previousTicket()">PREVIOUS</div>
+            <p class="previous-num">IP0-1</p>
+          </div>
+
+          <div class="next-cont">
+            <div class="next" onclick="nextTicket()">NEXT</div>
+            <p class="next-num">IP001</p>
+          </div>
+        </div>
+
+        <div class="reset" onclick="resetTicketNumber()">
+          RESET TICKET NUMBER
+        </div>
+      </div>
+    </form>
+
+    <div class="priority-content" style="display: none">
+      <div class="home-cont">
+        <!-- Content to slide to when priority is clicked -->
+        <div class="serving">SERVING</div>
+        <div class="ticket-number">PRIP000</div>
+        <div class="button-cont">
+          <div class="previous-cont">
+            <div class="previous" onclick="previousPriorityTicket()">
+              PREVIOUS
+            </div>
+            <p class="previous-num">PRIP0-1</p>
+          </div>
+          <div class="next-cont">
+            <div class="next" onclick="nextPriorityTicket()">NEXT</div>
+            <p class="next-num">PRIP001</p>
+          </div>
+        </div>
+        <div class="reset" onclick="resetPriorityTicketNumber()">
+          RESET TICKET NUMBER
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  const normalText = document.querySelector(".normal");
+  const priorityText = document.querySelector(".priority");
+  const underlineCont = document.querySelector(".underline-cont");
+  const priorityContent = document.querySelector(".priority-content");
+  const normalContent = document.querySelector(".normal-content");
+
+  priorityText.addEventListener("click", function () {
+    underlineCont.style.justifyContent = "right";
+    underlineCont.querySelector("p").style.borderColor = "#FED049";
+    priorityText.style.color = "#FED049";
+    normalText.style.color = "#3D5656";
+    priorityContent.style.display = "block";
+    normalContent.style.display = "none";
+  });
+
+  normalText.addEventListener("click", function () {
+    underlineCont.style.justifyContent = "left";
+    underlineCont.querySelector("p").style.borderColor = "#FED049";
+    normalText.style.color = "#FED049";
+    priorityText.style.color = "#3D5656";
+    priorityContent.style.display = "none";
+    normalContent.style.display = "block";
+  });
+
+  //image hover
+  const thirdCont = document.querySelector(".logout-cont");
+  const img = thirdCont.querySelector("img");
+  const logout = thirdCont.querySelector("logout");
+
+  thirdCont.addEventListener("mouseenter", function () {
+    img.src = "assets/logout-hover.png";
+  });
+
+  thirdCont.addEventListener("mouseleave", function () {
+    img.src = "assets/logout.png";
+  });
+
+  //TICKET NUMBER OF NORMAL
+  let currentTicketNumber = 0;
+
+  function nextTicket() {
+    if (currentTicketNumber < 120) {
+      currentTicketNumber++;
+      updateTicketNumber();
+    } else {
+      alert("Ticket number cannot exceed 120.");
+    }
+  }
+
+  function previousTicket() {
+    if (currentTicketNumber > 0) {
+      currentTicketNumber--;
+      updateTicketNumber();
+    }
+  }
+
+  function resetTicketNumber() {
+    currentTicketNumber = 0;
+    updateTicketNumber();
+  }
+
+  function updateTicketNumber() {
+    // const ticketNumberElement = document.querySelector(".ticket-number");
+    const ticketNumberElement = document.querySelector(".input-text");
+    const nextTicketNumberElement = document.querySelector(".next-num");
+    const previousTicketNumberElement = document.querySelector(".previous-num");
+
+    ticketNumberElement.value = `IP${currentTicketNumber
+      .toString()
+      .padStart(3, "0")}`;
+    nextTicketNumberElement.textContent = `IP${(currentTicketNumber + 1)
+      .toString()
+      .padStart(3, "0")}`;
+    previousTicketNumberElement.textContent = `IP${(currentTicketNumber - 1)
+      .toString()
+      .padStart(3, "0")}`;
+  }
+
+  //ticket number of PRIORITY
+  let currentPriorityTicketNumber = 0;
+
+  function nextPriorityTicket() {
+    if (currentPriorityTicketNumber < 120) {
+      currentPriorityTicketNumber++;
+      updatePriorityTicketNumber();
+    } else {
+      alert("Priority ticket number cannot exceed 120.");
+    }
+  }
+
+  function previousPriorityTicket() {
+    if (currentPriorityTicketNumber > 0) {
+      currentPriorityTicketNumber--;
+      updatePriorityTicketNumber();
+    }
+  }
+
+  function resetPriorityTicketNumber() {
+    currentPriorityTicketNumber = 0;
+    updatePriorityTicketNumber();
+  }
+
+  function updatePriorityTicketNumber() {
+    const priorityTicketNumberElement = document.querySelector(
+      ".priority-content .ticket-number"
+    );
+    const nextPriorityTicketNumberElement = document.querySelector(
+      ".priority-content .next-num"
+    );
+    const previousPriorityTicketNumberElement = document.querySelector(
+      ".priority-content .previous-num"
+    );
+
+    priorityTicketNumberElement.textContent = `PRIP${currentPriorityTicketNumber
+      .toString()
+      .padStart(3, "0")}`;
+    nextPriorityTicketNumberElement.textContent = `PRIP${(
+      currentPriorityTicketNumber + 1
+    )
+      .toString()
+      .padStart(3, "0")}`;
+    previousPriorityTicketNumberElement.textContent = `PRIP${(
+      currentPriorityTicketNumber - 1
+    )
+      .toString()
+      .padStart(3, "0")}`;
+  }
+
+  // Detect when the user is leaving the page (including refresh)
+  window.addEventListener("beforeunload", function (event) {
+    // Confirm before leaving the page
+    event.returnValue =
+      "If you refresh this page, the ticket number will be reset.";
+  });
+</script>
