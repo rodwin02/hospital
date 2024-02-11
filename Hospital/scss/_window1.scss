@@ -1,0 +1,200 @@
+.navbar {
+    width: 100%;
+    height: 100px;
+    background-color: #68B984;
+    
+    display: flex;
+    
+    .first-cont {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        padding-left: 50px;
+        
+        p {
+            font-family: Poppins;
+            font-weight: 400;
+            font-size: 60px;
+            color: #3D5656;
+            
+        }
+    }
+    .second-cont {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .text-cont {
+            display: flex;
+            gap: 130px;
+            .normal {
+                font-family: Poppins;
+                font-weight: 400;
+                font-size: 22px;
+                color: #FED049;
+                cursor: pointer;
+            }
+            .priority {
+                font-family: Poppins;
+                font-weight: 400;
+                font-size: 22px;
+                color: #3D5656;
+                cursor: pointer;
+            }
+        }
+        .underline-cont {
+            width: 312px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: left;
+            transition: justify-content 0.5s ease-in-out; /* Apply transition */
+            p {
+                border: 2px solid #FED049;
+                width: 90px;
+                
+                
+            }
+        }
+
+    }
+    .third-cont {
+        width: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        .logout-cont {
+            color: #3D5656;
+            cursor: pointer;
+
+            img {
+                width: 34px;
+                height: 35px; 
+            }
+            .logout {
+                font-family: Poppins;
+                font-weight: 400;
+                font-size: 11px;
+            }
+        }
+        .logout-cont:hover {
+            color: #FED049;
+        }
+    }
+}
+.home-cont {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 90px 0px;
+    
+    
+    .serving {
+        font-family: Poppins;
+        font-weight: 400;
+        font-size: 40px;
+        color: #CFFDE1;
+    }
+    
+    .ticket-number {
+        font-family: Poppins;
+        font-weight: 600;
+        font-size: 150px;
+        color: #CFFDE1;
+    }
+
+    
+    .button-cont {
+        display: flex;
+        width: 100%;
+        padding: 30px 0;
+        
+        .previous-cont {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            padding-left: 350px;
+            align-items: center;
+            gap: 15px;
+
+            .previous {
+                font-family: Poppins;
+                font-weight: 400;
+                font-size: 22px;
+                color: #FED049;
+                padding: 5px 25px;
+                border-radius: 50px;
+                border: 1px solid #FED049;
+                cursor: pointer;
+            }
+            .previous:hover {
+                background-color: #FED049;
+                color: #3D5656;
+            }
+            p {
+                font-family: Poppins;
+                font-weight: 400;
+                font-size: 16px;
+                color: #CFFDE1;
+            }
+        }
+        .next-cont {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-right: 350px;
+            gap: 15px;
+
+
+            .next {
+                font-family: Poppins;
+                font-weight: 400;
+                font-size: 22px;
+                color: #FED049;
+                padding: 5px 25px;
+                border-radius: 50px;
+                border: 1px solid #FED049;
+                cursor: pointer;
+            }
+            .next:hover {
+                background-color: #FED049;
+                color: #3D5656;
+            }
+            p {
+                font-family: Poppins;
+                font-weight: 400;
+                font-size: 16px;
+                color: #CFFDE1;
+            }
+        }
+    }
+    .reset {
+        font-family: Poppins;
+        font-weight: 400;
+        font-size: 20px;
+        color: #FED049;
+        cursor: pointer;
+
+        padding-top: 40px;
+    }
+}
+
+.normal-content {
+    transition: transform 0.3s ease;
+}
+
+.normal-content.hidden {
+    transform: translateY(-100%);
+}
+.priority-content {
+    transition: transform 0.3s ease;
+}
+
+.priority-content.hidden {
+    transform: translateY(-100%);
+}

@@ -1,0 +1,97 @@
+.scroll-left {
+    height: 100px;
+    overflow: hidden;
+    position: fixed; /* Change from 'relative' to 'fixed' */
+    bottom: 0; /* Position it at the bottom of the viewport */
+    left: 0;
+    width: 100%; /* Occupy full width of the viewport */
+    background-color: #68B984;
+    
+
+    p {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        line-height: 100px;
+        text-align: center;
+        /* Starting position */
+        transform: translateX(100%);
+        /* Apply animation to this element */
+        animation: scroll-left 20s linear infinite;
+
+        font-family: Poppins;
+        font-weight: 400;
+        font-size: 32px;
+        color: #3D5656;
+    }
+}
+/* Move it (define the animation) */
+@keyframes scroll-left {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+
+.patient-screen {
+    position: absolute;
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    .video-cont {
+        background-color: #000;
+        width: 55%;
+        display: flex;
+        align-items: center;
+        border-right: 5px solid #68B984;
+    }
+    .screen-cont {
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+        align-items: end;
+        .serving {
+            font-family: Poppins;
+            font-weight: 400;
+            font-size: 40px;
+            color: #CFFDE1;
+        }
+        
+        .serving-ip {
+            font-family: Poppins;
+            font-weight: 400;
+            font-size: 140px;
+            color: #FED049;
+        }
+        .window-ip {
+            line-height: 10%;
+            font-family: Poppins;
+            font-weight: 400;
+            font-size: 50px;
+            color: #CFFDE1;
+            
+        }
+        .serving-oe {
+            font-family: Poppins;
+            font-weight: 400;
+            font-size: 140px;
+            color: #FED049;
+        }
+        .window-oe {
+            line-height: 10%;
+            font-family: Poppins;
+            font-weight: 400;
+            font-size: 50px;
+            color: #CFFDE1;
+        }
+        
+    }
+
+
+    
+}
